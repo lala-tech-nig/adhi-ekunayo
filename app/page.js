@@ -117,7 +117,7 @@ const GBVLandingPage = () => {
         >
           <div className="absolute -inset-4 bg-red-100 rounded-[2rem] -rotate-3 z-0"></div>
           <img 
-            src="https://images.unsplash.com/photo-1573164067047-0ad2c18a20ee?auto=format&fit=crop&q=80&w=800" 
+            src="/hands.jpg" 
             alt="Supportive community" 
             className="relative z-10 rounded-[2rem] shadow-2xl object-cover h-[500px] w-full"
           />
