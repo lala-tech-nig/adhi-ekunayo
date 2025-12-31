@@ -7,6 +7,7 @@ import {
   Users, Home, Info, BookOpen, Mail, X, 
   ArrowRight, Heart, Gavel, Scale 
 } from 'lucide-react';
+import Link from "next/link";
 
 // Animation Variants
 const fadeIn = {
@@ -35,12 +36,20 @@ const GBVLandingPage = () => {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-2"
           >
-            <div className="bg-red-600 p-1.5 rounded-lg shadow-lg shadow-red-200">
-              <ShieldCheck className="text-white w-6 h-6" />
-            </div>
-            <span className="font-bold text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
-              AHDI
-            </span>
+            <div className="flex items-center gap-3">
+          {/* LOGO IMAGE REPLACEMENT */}
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center gap-3 cursor-pointer"
+          >
+            <img 
+              src="/logo.png" 
+              alt="AHDI Logo" 
+              className="h-10 w-auto object-contain" 
+            />
+            <span className="font-black text-2xl tracking-tighter text-slate-900">AHDI</span>
+          </motion.div>
+        </div>
           </motion.div>
           
           <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-600">
@@ -50,13 +59,16 @@ const GBVLandingPage = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
               </a>
             ))}
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-red-600 text-white px-5 py-2.5 rounded-full flex items-center gap-2 hover:bg-red-700 transition shadow-lg shadow-red-200"
-            >
-              <AlertCircle size={18} /> Report Incident
-            </motion.button>
+
+<Link href="/report">
+  <motion.button
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="bg-red-600 text-white px-5 py-2.5 rounded-full flex items-center gap-2 hover:bg-red-700 transition shadow-lg shadow-red-200"
+  >
+    <AlertCircle size={18} /> Report Incident
+  </motion.button>
+</Link>
           </div>
         </div>
       </nav>
@@ -98,15 +110,17 @@ const GBVLandingPage = () => {
           <motion.p variants={fadeIn} className="text-gray-600 mt-8 text-xl leading-relaxed max-w-lg">
             Gender-Based Violence is a crime in Ogun State. AHDI provides a safe sanctuary, legal advocacy, and a path to justice. You are not alone.
           </motion.p>
-          
+          <Link href="/report">
           <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4 mt-10">
             <button className="bg-red-600 text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-red-700 transition-all transform hover:-translate-y-1 shadow-xl shadow-red-100">
               <Phone size={20} /> Get Immediate Help
             </button>
+          
             <button className="bg-white border-2 border-slate-200 text-slate-700 px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 hover:border-red-600 hover:text-red-600 transition-all">
               <BookOpen size={20} /> Know Your Rights
             </button>
           </motion.div>
+          </Link>
         </motion.div>
 
         <motion.div 
